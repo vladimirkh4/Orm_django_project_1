@@ -1,6 +1,13 @@
 from django.db import models
 
 
+class Compensation(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 class Contact(models.Model):
     phone = models.CharField(max_length=50, unique=True)
     address = models.CharField(max_length=50)
@@ -22,6 +29,7 @@ class Employee(models.Model):
     last_name = models.CharField(max_length=100)
     contact = models.OneToOneField(Contact, on_delete=models.CASCADE, null=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, default=None)
+    compensations = models.ManyToManyField(Compensation)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
