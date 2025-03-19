@@ -490,6 +490,9 @@
   "fields": {
     "first_name": "John",
     "last_name": "Doe",
+    "age": 42,
+    "created": "2025-03-19T18:31:07.909Z",
+    "work_experience": 5,
     "contact": null,
     "department": 1,
     "compensations": [
@@ -504,6 +507,9 @@
   "fields": {
     "first_name": "Jane",
     "last_name": "Doe",
+    "age": 34,
+    "created": "2025-03-19T18:31:07.909Z",
+    "work_experience": 10,
     "contact": null,
     "department": 1,
     "compensations": [
@@ -518,11 +524,30 @@
   "fields": {
     "first_name": "Bill",
     "last_name": "Gates",
+    "age": 55,
+    "created": "2025-03-19T18:31:07.909Z",
+    "work_experience": 14,
     "contact": null,
     "department": 1,
     "compensations": [
-      3,
-      2
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "hr.employee",
+  "pk": 4,
+  "fields": {
+    "first_name": "John",
+    "last_name": "Connor",
+    "age": 43,
+    "created": "2025-03-19T19:12:25.721Z",
+    "work_experience": 14,
+    "contact": null,
+    "department": 1,
+    "compensations": [
+      1
     ]
   }
 }
