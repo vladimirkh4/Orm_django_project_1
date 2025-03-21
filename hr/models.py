@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.postgres.indexes import HashIndex
+from django.contrib.postgres.indexes import HashIndex, BrinIndex
 
 
 # class Compensation(models.Model):
@@ -70,6 +70,11 @@ class Employee(Person):
             HashIndex(
                 fields=('about',),
                 name="hr_%(class)s_about_ix",
+            ),
+            BrinIndex(
+                fields=('created',),
+                name="hr_employee_created_ix",
+                pages_per_range=2
             ),
         )
 
