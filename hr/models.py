@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.postgres.indexes import HashIndex
 
 
 # class Compensation(models.Model):
@@ -63,6 +64,14 @@ class Employee(Person):
 
     objects = models.Manager()
     persons = CustomManager()
+
+    class Meta:
+        indexes = (
+            HashIndex(
+                fields=('about',),
+                name="hr_%(class)s_about_ix",
+            ),
+        )
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
