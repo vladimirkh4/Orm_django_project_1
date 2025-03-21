@@ -57,7 +57,7 @@ class Person(models.Model):
 
 
 class Employee(Person):
-    about = models.CharField(max_length=10000, default='text', db_index=True)
+    about = models.CharField(max_length=10000, default='text')
     work_experience = models.SmallIntegerField(default=0, null=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE, default=None, null=True)
     # compensations = models.ManyToManyField(Compensation)
