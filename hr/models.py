@@ -2,13 +2,13 @@ from django.db import models
 from django.utils import timezone
 
 
-class Compensation(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
+# class Compensation(models.Model):
+#     name = models.CharField(max_length=255)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
 class Contact(models.Model):
     phone = models.CharField(max_length=50, unique=True)
     address = models.CharField(max_length=50)
@@ -56,9 +56,10 @@ class Person(models.Model):
 
 
 class Employee(Person):
-    work_experience = models.SmallIntegerField(default=0)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, default=None)
-    compensations = models.ManyToManyField(Compensation)
+    about = models.CharField(max_length=10000)
+    work_experience = models.SmallIntegerField(default=0, null=True)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, default=None, null=True)
+    # compensations = models.ManyToManyField(Compensation)
 
     objects = models.Manager()
     persons = CustomManager()
